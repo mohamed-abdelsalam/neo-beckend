@@ -10,10 +10,12 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
   /**
-  * @Route("/", name="homepage")
+  * @Route("/")
   */
   public function indexAction(Request $request)
   {
-    return new Response('Hello, world!');
+    $object = new \stdClass();
+    $object->hello = "world";
+    return new Response(json_encode($object));
   }
 }
